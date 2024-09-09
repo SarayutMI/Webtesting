@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="stylepage3.css" />
+</head>
+<body>
+    <div class="Top-title">
+        <div class="titlePage">
+            <p>Food Court System</p>
+        </div>
+        <div class="titleRegister">
+            <p>Register</p>
+        </div>
+    </div>
+    <div id="message" style="color:red;"></div>
+    <div class="imageman">
+        <img src="men.png" alt="Men">
+    </div>
+    <div class="imagewomen">
+        <img src="women.png" alt="women">
+    </div>
+    <!-- Form with id "registerForm" -->
+    <form id="registerForm" action="/your-server-endpoint" method="POST">
+        <div class="Registerfrom">
+            <div>
+                <label for="name">NAME</label>
+                <input type="text" id="name" name="name" placeholder="Enter Name">
+            </div>
+            <div>
+                <label for="user">USER</label>
+                <input type="text" id="user" name="user" placeholder="Enter Username">
+            </div>
+            <div>
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            </div>
+            <div>
+                <label for="confirm_password">CONFIRM PASSWORD</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+            </div>
+        </div>
+        <div class="button-container">
+            <button class="cancelbtn" onclick="window.location.href='page2.html';">Back</button>
+            <button class="submitbtn" type="button" onclick="submitForm()">Submit</button>
+        </div>        
+    </form>
+
+    <script>
+    function submitForm() {
+        // ตรวจสอบรหัสผ่านว่าตรงกันหรือไม่
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirm_password").value;
+        var message = document.getElementById("message");
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!"); // แสดงข้อความเตือน
+            return false; // หยุดการส่งฟอร์มถ้ารหัสผ่านไม่ตรงกัน
+        }
+        
+        // ถ้ารหัสผ่านตรงกัน ให้ส่งแบบฟอร์ม
+        document.getElementById("registerForm").submit();
+    }
+    </script>
+
+</body>
+</html>

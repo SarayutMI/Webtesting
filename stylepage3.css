@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+.titlePage{
+    height: 150px;
+    background-color: none;
+    margin: 0 auto;
+    font-family: "Bebas Neue Regular";
+    color: #000000;
+    font-size: 100px;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.titleRegister{
+    height: 150px;
+    background-color: none;
+    margin: 0 auto;
+    font-family: "Bebas Neue Regular";
+    color: #000000;
+    font-size: 50px;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.Registerfrom {
+    height: 200px;
+    margin: 0 auto;
+    font-family: "Bebas Neue Regular"; 
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+    align-items: center; /* จัดให้อยู่ตรงกลางในแนวนอน */
+    text-align: left; /* จัดข้อความทางซ้าย */
+    position: relative;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Registerfrom label {
+    display: inline-block;
+    width: 200px; /* กำหนดขนาดความกว้างของ label ให้เท่ากัน */
+    vertical-align: top; /* จัดให้ label อยู่ด้านบน */
+    text-align: right; /* จัดให้ข้อความใน label อยู่ทางขวา */
+    margin-right: 10px; /* เพิ่มระยะห่างระหว่าง label กับ input */
+}
+
+.Registerfrom input[type="text"],
+.Registerfrom input[type="password"] {
+    width: 300px; /* ขนาดความกว้างที่แน่นอน */
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    display: inline-block; /* จัดให้ input อยู่ในบรรทัดเดียวกับ label */
+    margin-bottom: 10px; /* ระยะห่างระหว่าง input แต่ละอัน */
+}
+
+/* จัดการตำแหน่งของ label และ input ให้อยู่ในบรรทัดเดียวกัน */
+.Registerfrom div {
+    display: flex;
+    align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+}
+
+/* ตกแต่ง placeholder */
+.Registerfrom input::placeholder {
+    color: #aaa; /* สีของ placeholder */
+    font-style: italic; /* ทำให้ข้อความ placeholder เป็นตัวเอียง */
+}
+/* Container สำหรับปุ่ม */
+.button-container {
+    display: flex;
+    justify-content: center; /* จัดให้อยู่ตรงกลางในแนวนอน */
+    gap: 20px; /* ระยะห่างระหว่างปุ่ม */
+    margin-top: 50px; /* ระยะห่างจากองค์ประกอบข้างบน */
+    position: relative;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cancelbtn, .submitbtn {
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 15px;
+    font-family: "Bebas Neue Regular";
+    font-size: 20px;
+    cursor: pointer; /* เปลี่ยน cursor เป็น pointer เมื่อ hover */
+}
+.cancelbtn:hover{
+    background-color: #d45500; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+}
+
+.cancelbtn {
+    background-color: #979797;
+}
+
+.submitbtn {
+    background-color: #d45500; 
+}
+.submitbtn:hover {
+    background-color: #ff6600; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+}
+.imageman{
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: scale(0.8);
+    transform-origin: top right; 
+}
+.imagewomen{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 10px;
+    transform: scale(0.8);
+    transform-origin: top left;
+}
+@media (min-width: 768px) and (max-width: 820px) and (orientation: portrait) {
+    .imageman{
+        transform: scale(0.45);
+        transform-origin: right;
+    }
+    .imagewomen{
+        transform: scale(0.45);
+        transform-origin: left;
+    }
+}
+
+@media (min-width: 820px) and (max-width: 1180px) and (orientation: landscape){
+    .imageman{
+        transform: scale(0.7);
+        transform-origin: right;
+    }
+    .imagewomen{
+        transform: scale(0.7);
+        transform-origin: left;
+    }
+} 
+
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Website</title>
+  <!-- Default CSS (you can leave it blank or add general styles) -->
+  <link id="device-style" rel="stylesheet" href="">
+</head>
+<body>
+
+  <h1>Welcome to the responsive website</h1>
+
+  <!-- ปุ่มเลือกแสดงผล -->
+  <div>
+    <button onclick="setStyle('desktop.css')">Desktop</button>
+    <button onclick="setStyle('laptop.css')">Laptop</button>
+    <button onclick="setStyle('ipad.css')">iPad Air 5</button>
+  </div>
+
+  <p>This content will be styled according to your device selection.</p>
+
+  <script>
+    // ฟังก์ชันเปลี่ยน CSS ตามอุปกรณ์
+    function setStyle(styleSheet) {
+      document.getElementById('device-style').href = styleSheet;
+    }
+  </script>
+</body>
+</html>

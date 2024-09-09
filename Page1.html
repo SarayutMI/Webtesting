@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="stylepage1.css" />
+  </head>
+  <body>
+    <div class="Top-title">
+
+        <b>Food Court System</b>
+    </div>
+        <button class="Start-Button" onclick="window.location.href='page2.html';">Start</button>
+    </div>
+
+    <div class="imageMeat">
+        <img src="meat.png" alt="Italian Trulli">
+    </div>
+    
+    <div class="imagefooddish">
+        <img src="fooddish.png" alt="Italian Trulli">
+    </div>
+
+    <div class="imagefish">
+        <img src="fish.png" alt="Italian Trulli">
+    </div>
+
+    <div class="clock" id="clock"></div>
+
+    <script>
+      function updateClock() {
+        var now = new Date();
+        var day = now.getDate();
+        var month = now.getMonth() + 1; // เดือนใน JavaScript เริ่มจาก 0
+        var year = now.getFullYear();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        // เพิ่มเลข 0 ถ้าตัวเลขมีเพียงหลักเดียว
+        if (day < 10) day = '0' + day;
+        if (month < 10) month = '0' + month;
+        if (hours < 10) hours = '0' + hours;
+        if (minutes < 10) minutes = '0' + minutes;
+        if (seconds < 10) seconds = '0' + seconds;
+
+        var formattedTime = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes + ':' + seconds;
+        
+        document.getElementById('clock').innerHTML = formattedTime;
+      }
+
+      // อัปเดตนาฬิกาทุกๆ วินาที
+      setInterval(updateClock, 1000);
+      updateClock(); // เรียกครั้งแรกเพื่อแสดงผลทันที
+    </script>
+
+
+  </body>
+</html>

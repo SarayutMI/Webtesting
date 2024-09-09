@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="stylepage4.css" />
+</head>
+<body>
+    <div class="top-bar">
+        <div class="titlesite">
+            <p>Food Court System</p>
+        </div>
+        <div class="top-bar-buttons">
+            <button class="Dashbordbtn" type="button" onclick="window.location.href='page5.html';">Dashbord</button>
+            <button class="LOGOUTbtn" type="button" onclick="window.location.href='page1.html';">LOGOUT</button>
+        </div>
+    </div>
+    <hr class="solid">
+    <form>
+        <div class="inputcard">
+            <label for="CardID">Card ID</label><br>
+            <input type="text" id="CardID" name="CardID">
+        </div>
+        <br>
+        <div class="Show-balance">
+            <label for="balance">AVAILABLE BALANCE</label><br>
+            <div id="balance-display">0.00</div> <!-- แสดงผลยอดเงิน -->
+        </div>        
+    </form>
+
+    <div class="calculator">
+        <button class="btn" data-value="7">7</button>
+        <button class="btn" data-value="8">8</button>
+        <button class="btn" data-value="9">9</button>
+        <button class="btn" data-value="4">4</button>
+        <button class="btn" data-value="5">5</button>
+        <button class="btn" data-value="6">6</button>
+        <button class="btn" data-value="1">1</button>
+        <button class="btn" data-value="2">2</button>
+        <button class="btn" data-value="3">3</button>
+        <button class="btn-clear" data-value="C">
+            <img src="refreshicon.png" alt="refresh" class="btn-refresh-icon">
+        </button>
+        <button class="btn" data-value="0">0</button>
+        <button class="btn-remove" data-value="R">
+            <img src="removeicon.png" alt="refresh" class="btn-remove-icon">
+        </button>
+    </div>
+
+    <button id="topup-btn" class="ModeBTN">Topup</button>
+    <button id="refund-btn" class="ModeBTN">Refund</button>
+    <button id="check-btn" class="ModeBTN">Check</button>
+    <button id="Bubmit-btn" class="SubmitBTN">Sumbmit</button>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const balanceDisplay = document.getElementById('balance-display');
+    const buttons = document.querySelectorAll('.btn, .btn-remove, .btn-clear');
+    
+    // ตั้งค่าภาพเริ่มต้น
+    balanceDisplay.textContent = '0.00';
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const value = button.getAttribute('data-value');
+            
+            if (value === 'C') {
+                // Clear the value of the display field
+                balanceDisplay.textContent = '0.00';
+                return;
+            }
+            if (value === 'R') {
+                // Remove the last character from the display field
+                if (balanceDisplay.textContent.length > 1) {
+                    balanceDisplay.textContent = balanceDisplay.textContent.slice(0, -1);
+                } else {
+                    balanceDisplay.textContent = '0.00'; // Set to '0.00' if nothing left
+                }
+                return;
+            }
+            
+            if (value === '.') {
+                // ไม่ทำอะไรกับปุ่มจุดทศนิยม
+                return;
+            } else {
+                // ตรวจสอบและตั้งค่าค่าใหม่
+                if (balanceDisplay.textContent === '0.00') {
+                    balanceDisplay.textContent = value;
+                } else {
+                    balanceDisplay.textContent += value;
+                }
+            }
+            
+            // ตรวจสอบการจำกัดวงเงิน
+            let inputValue = parseInt(balanceDisplay.textContent, 10);
+            if (isNaN(inputValue)) {
+                inputValue = 0;
+            }
+    
+            // ตรวจสอบให้ไม่เกิน 1000 บาท
+            if (inputValue > 1000) {
+                balanceDisplay.textContent = '1000.00';
+                alert('วงเงินไม่สามารถเกิน 1000 บาท');
+            }
+            
+            // จำกัดให้ใส่เลขจำนวนไม่เกิน 4 หลัก
+            if (balanceDisplay.textContent.length > 4) {
+                balanceDisplay.textContent = balanceDisplay.textContent.slice(0, 4);
+            }
+        });
+    });
+});
+
+            function deactivateOtherButtons() {
+                // ลบคลาส active ออกจากปุ่มทั้งหมด
+                document.getElementById("topup-btn").classList.remove("active");
+                document.getElementById("refund-btn").classList.remove("active");
+                document.getElementById("check-btn").classList.remove("active");
+            }
+
+            document.getElementById("topup-btn").addEventListener("click", function() {
+                deactivateOtherButtons();
+                this.classList.add("active");
+            });
+
+            document.getElementById("refund-btn").addEventListener("click", function() {
+                deactivateOtherButtons();
+                this.classList.add("active");
+            });
+
+            document.getElementById("check-btn").addEventListener("click", function() {
+                deactivateOtherButtons();
+                this.classList.add("active");
+            });
+        </script>
+        
+</body>
+</html>
